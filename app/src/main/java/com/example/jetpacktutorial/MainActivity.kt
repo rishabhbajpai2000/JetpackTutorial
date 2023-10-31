@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             var painter = painterResource(id = R.drawable.photo)
-            var contentDescription = "filled form "
+            var contentDescription = "Google form that was filled for a company "
             var title = "Filled Form"
             ImageCard(painter = painter, contentDescription = contentDescription, title = title)
         }
@@ -77,20 +77,21 @@ fun ImageCard(
                         Color.Black
                     ),
                 )))
-            Box(
+            Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(12.dp),
-                contentAlignment = Alignment.BottomStart
+               verticalArrangement = Arrangement.Bottom
             ) {
                 Text(text = title, style = TextStyle(color = Color.White, fontSize = 16.sp))
+                Text(text = contentDescription, style = TextStyle(color = Color.White, fontSize = 16.sp))
             }
         }
     }
 
 }
 
-@Preview
+@Preview(device = "id:pixel_5")
 @Composable
 fun ImageCardPreview() {
     var painter = painterResource(id = R.drawable.photo)
